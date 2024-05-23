@@ -37,6 +37,11 @@
         section {
             padding: 20px 0;
         }
+        .about-img {
+            float: left;
+            margin-right: 20px;
+            border-radius: 50%;
+        }
         footer {
             background-color: #333;
             color: #fff;
@@ -45,6 +50,11 @@
             position: fixed;
             width: 100%;
             bottom: 0;
+        }
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
         }
     </style>
 </head>
@@ -62,27 +72,28 @@
         </div>
     </header>
 
-    <section id="about" class="container">
+    <section id="about" class="container clearfix">
         <h2>About Me</h2>
-        <p>Hello! I'm Jayesh Gaur, a passionate developer with experience in web development and software engineering. I enjoy creating innovative solutions and working on exciting projects. Feel free to explore my portfolio to see some of my work.</p>
+        <img src="pic2.png" alt="Jayesh Gaur" class="about-img" width="150" height="150">
+        <p>Hello! I'm Jayesh Gaur, a passionate developer with experience in software engineering and systems designing. I enjoy creating innovative solutions and working on exciting projects. Feel free to explore my portfolio to see some of my work.</p>
     </section>
 
     <section id="projects" class="container">
         <h2>Projects</h2>
         <div>
             <h3>Project 1</h3>
-            <p>Description of Project 1. Briefly describe what the project is about and your role in it.</p>
+            <p>To be updated.</p>
         </div>
         <div>
             <h3>Project 2</h3>
-            <p>Description of Project 2. Briefly describe what the project is about and your role in it.</p>
+            <p>To be updated.</p>
         </div>
         <!-- Add more projects as needed -->
     </section>
 
     <section id="contact" class="container">
         <h2>Contact</h2>
-        <p>If you would like to get in touch, please email me at <a href="mailto:jayesh@example.com">jayesh@example.com</a>.</p>
+        <p>If you would like to get in touch, please email me at <a href="mailto:jayesh@example.com">jayeshg.716@gmail.com</a>.</p>
     </section>
 
     <footer>
