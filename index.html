@@ -3,101 +3,624 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jayesh Gaur - Portfolio</title>
+    <title>Jayesh Gaur</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --bg: #0a0a0a;
+            --bg-elevated: #0f0f0f;
+            --bg-card: #111111;
+            --bg-card-hover: #161616;
+            --text: #f2f2f2;
+            --text-secondary: #a0a0a0;
+            --text-muted: #505050;
+            --accent: #c9a66b;
+            --accent-soft: rgba(201, 166, 107, 0.12);
+            --border: rgba(255, 255, 255, 0.06);
+            --border-hover: rgba(255, 255, 255, 0.12);
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
         }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
+
+        html {
+            scroll-behavior: smooth;
         }
-        nav ul {
-            list-style: none;
-            padding: 0;
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            font-size: 15px;
         }
-        nav ul li {
-            display: inline;
-            margin: 0 10px;
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            opacity: 0.022;
+            pointer-events: none;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
-        nav ul li a {
-            color: #fff;
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 20px 56px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(180deg, var(--bg) 60%, transparent 100%);
+        }
+
+        .nav-logo {
+            font-weight: 500;
+            font-size: 15px;
+            color: var(--text);
             text-decoration: none;
         }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
         .container {
-            width: 80%;
-            margin: auto;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 56px;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 160px 0 80px;
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .hero-main h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 64px;
+            font-weight: 400;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero-tagline {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            padding: 14px 28px;
+            background: var(--text);
+            color: var(--bg);
+            border-radius: 3px;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            color: var(--text-secondary);
+        }
+
+        .btn-ghost:hover {
+            color: var(--text);
+        }
+
+        /* Hero philosophy - big statement */
+        .hero-philosophy {
+            position: relative;
+        }
+
+        .hero-philosophy .big-quote {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 42px;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .hero-philosophy .subtext {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Ventures Section */
+        .ventures-section {
+            padding: 64px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 32px;
+            font-weight: 400;
+        }
+
+        .ventures-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .venture-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 32px 36px;
+            text-decoration: none;
+            color: inherit;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 40px;
+            align-items: center;
+            transition: all 0.25s ease;
+            position: relative;
             overflow: hidden;
         }
-        section {
-            padding: 20px 0;
+
+        .venture-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.25s ease;
         }
-        .about-img {
-            float: left;
-            margin-right: 20px;
-            border-radius: 50%;
+
+        .venture-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            transform: translateX(6px);
         }
+
+        .venture-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .venture-info {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .venture-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .venture-name {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+        .venture-badge {
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-soft);
+            padding: 4px 10px;
+            border-radius: 2px;
+        }
+
+        .venture-tagline {
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .venture-meta {
+            text-align: right;
+        }
+
+        .venture-dates {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .venture-arrow {
+            font-size: 20px;
+            color: var(--text-muted);
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: all 0.25s;
+        }
+
+        .venture-card:hover .venture-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Writing Section */
+        .writing-section {
+            padding: 64px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .writing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .writing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 28px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 160px;
+        }
+
+        .writing-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+        }
+
+        .writing-title {
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .writing-source {
+            font-size: 12px;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .writing-source .arrow {
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .writing-card:hover .writing-source .arrow {
+            opacity: 1;
+        }
+
+        /* Contact */
+        .contact-section {
+            padding: 64px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .contact-inner {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            padding: 56px;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .contact-text h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 36px;
+            font-weight: 400;
+            margin-bottom: 16px;
+        }
+
+        .contact-text p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.75;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .contact-link:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .contact-link:hover {
+            color: var(--text);
+            padding-left: 10px;
+        }
+
+        .contact-link .arrow {
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: all 0.2s;
+        }
+
+        .contact-link:hover .arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
         footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            padding: 32px 0;
+            border-top: 1px solid var(--border);
         }
-        .clearfix::after {
-            content: "";
-            clear: both;
-            display: table;
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .footer-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background: #4ade80;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        @media (max-width: 960px) {
+            nav { padding: 16px 28px; }
+            .nav-links { gap: 20px; }
+            .container { padding: 0 28px; }
+            .hero { 
+                grid-template-columns: 1fr; 
+                gap: 48px;
+                padding: 120px 0 56px;
+            }
+            .hero-main h1 { font-size: 44px; }
+            .hero-philosophy .big-quote { font-size: 32px; }
+            .venture-card { grid-template-columns: 1fr; gap: 16px; }
+            .venture-meta { text-align: left; }
+            .writing-grid { grid-template-columns: 1fr; }
+            .contact-inner { grid-template-columns: 1fr; gap: 40px; padding: 40px; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Jayesh Gaur</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <section id="about" class="container clearfix">
-        <h2>About Me</h2>
-        <img src="pic2.png" alt="Jayesh Gaur" class="about-img" width="150" height="150">
-        <p>Hello! I'm Jayesh Gaur, a passionate developer with experience in software engineering and systems designing. I enjoy creating innovative solutions and working on exciting projects. Feel free to explore my portfolio to see some of my work.</p>
-    </section>
+    <nav>
+        <a href="#" class="nav-logo">JG</a>
+        <ul class="nav-links">
+            <li><a href="#ventures">Ventures</a></li>
+            <li><a href="#writing">Writing</a></li>
+            <li><a href="mailto:jayeshg.716@gmail.com">Contact</a></li>
+            <li><a href="https://linkedin.com/in/jayeshgaur" target="_blank">LinkedIn</a></li>
+        </ul>
+    </nav>
 
-    <section id="projects" class="container">
-        <h2>Projects</h2>
-        <div>
-            <h3>Project 1</h3>
-            <p>To be updated.</p>
-        </div>
-        <div>
-            <h3>Project 2</h3>
-            <p>To be updated.</p>
-        </div>
-        <!-- Add more projects as needed -->
-    </section>
+    <div class="container">
 
-    <section id="contact" class="container">
-        <h2>Contact</h2>
-        <p>If you would like to get in touch, please email me at <a href="mailto:jayesh@example.com">jayeshg.716@gmail.com</a>.</p>
-    </section>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-main">
+                <h1>Jayesh Gaur</h1>
+                <p class="hero-tagline">Hacker/Engineer · San Francisco</p>
+                <div class="hero-cta">
+                    <a href="#ventures" class="btn btn-primary">View my work</a>
+                    <a href="#contact" class="btn btn-ghost">Get in touch →</a>
+                </div>
+            </div>
+            <div class="hero-philosophy">
+                <p class="big-quote">"I ship things that work."</p>
+                <p class="subtext">
+                    Every problem has a solution. Systems, Infra, AI — I build 
+                    what the problem needs. Whatever it takes.
+                </p>
+            </div>
+        </section>
 
-    <footer>
-        <p>&copy; 2024 Jayesh Gaur. All rights reserved.</p>
-    </footer>
+        <!-- Ventures -->
+        <section class="ventures-section" id="ventures">
+            <div class="section-header">
+                <h2 class="section-title">Ventures</h2>
+            </div>
+
+            <div class="ventures-grid">
+
+                <a href="story.html" class="venture-card">
+                    <div class="venture-info">
+                        <div class="venture-header">
+                            <span class="venture-name">Story.com</span>
+                            <span class="venture-badge">Current</span>
+                        </div>
+                        <p class="venture-tagline">
+                            Built the AI Netflix from zero. 500K+ monthly users.
+                        </p>
+                    </div>
+                    <div class="venture-meta">
+                        <div class="venture-dates">2023 — Present</div>
+                        <span class="venture-arrow">→</span>
+                    </div>
+                </a>
+
+                <a href="nyu.html" class="venture-card">
+                    <div class="venture-info">
+                        <div class="venture-header">
+                            <span class="venture-name">New York University</span>
+                        </div>
+                        <p class="venture-tagline">
+                            MS Computer Engineering. Where backend met AI.
+                        </p>
+                    </div>
+                    <div class="venture-meta">
+                        <div class="venture-dates">2021 — 2023</div>
+                        <span class="venture-arrow">→</span>
+                    </div>
+                </a>
+
+                <a href="capgemini.html" class="venture-card">
+                    <div class="venture-info">
+                        <div class="venture-header">
+                            <span class="venture-name">Capgemini</span>
+                        </div>
+                        <p class="venture-tagline">
+                            Software Engineer → DevOps. Modernized a 16-year legacy system.
+                        </p>
+                    </div>
+                    <div class="venture-meta">
+                        <div class="venture-dates">2019 — 2021</div>
+                        <span class="venture-arrow">→</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Writing -->
+        <section class="writing-section" id="writing">
+            <div class="section-header">
+                <h2 class="section-title">Writing</h2>
+            </div>
+
+            <div class="writing-grid">
+                <a href="https://techfundingnews.com/from-clips-to-stories-the-systems-engineering-shaping-the-future-of-ai-video/" target="_blank" class="writing-card">
+                    <h3 class="writing-title">From Clips to Stories: Systems Engineering in AI Video</h3>
+                    <div class="writing-source">
+                        <span>Tech Funding News</span>
+                        <span class="arrow">→</span>
+                    </div>
+                </a>
+                <a href="https://technori.com/2025/09/24439-jayesh-gaur-ai-netflix/marcus/" target="_blank" class="writing-card">
+                    <h3 class="writing-title">Jayesh Gaur: Building the AI Netflix</h3>
+                    <div class="writing-source">
+                        <span>Technori</span>
+                        <span class="arrow">→</span>
+                    </div>
+                </a>
+                <a href="https://aijourn.com/why-the-next-era-of-ai-video-depends-on-orchestration-not-just-models/" target="_blank" class="writing-card">
+                    <h3 class="writing-title">Why the Next Era of AI Video Depends on Orchestration</h3>
+                    <div class="writing-source">
+                        <span>AI Journal</span>
+                        <span class="arrow">→</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact-section" id="contact">
+            <div class="contact-inner">
+                <div class="contact-text">
+                    <h2>Let's build something</h2>
+                    <p>
+                        Open to engineering roles, consulting, and interesting problems. 
+                        If you're working on something good — I'd love to hear about it.
+                    </p>
+                </div>
+                <div class="contact-links">
+                    <a href="mailto:jayeshg.716@gmail.com" class="contact-link">
+                        <span>jayeshg.716@gmail.com</span>
+                        <span class="arrow">→</span>
+                    </a>
+                    <a href="https://github.com/jayeshgaur" target="_blank" class="contact-link">
+                        <span>GitHub</span>
+                        <span class="arrow">→</span>
+                    </a>
+                    <a href="https://linkedin.com/in/jayeshgaur" target="_blank" class="contact-link">
+                        <span>LinkedIn</span>
+                        <span class="arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-inner">
+                <span>Jayesh Gaur™ · Built with intent</span>
+                <span>San Francisco · © 2026</span>
+            </div>
+        </footer>
+
+    </div>
+
 </body>
 </html>

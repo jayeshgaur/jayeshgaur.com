@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story.com - Jayesh Gaur</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #111111;
+            --text: #f2f2f2;
+            --text-secondary: #a0a0a0;
+            --text-muted: #505050;
+            --accent: #c9a66b;
+            --border: rgba(255, 255, 255, 0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            opacity: 0.022;
+            pointer-events: none;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            padding: 40px 0 32px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover { color: var(--text); }
+
+        .page-header {
+            margin-bottom: 56px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-meta {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 48px;
+            font-weight: 400;
+            margin-bottom: 16px;
+        }
+
+        .page-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 48px 0;
+            padding: 32px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 32px;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 32px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent) 0%, var(--border) 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 48px;
+        }
+
+        .timeline-item:last-child { margin-bottom: 0; }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+
+        .timeline-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 16px;
+        }
+
+        .timeline-content {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .timeline-content p {
+            margin-bottom: 16px;
+        }
+
+        .timeline-content p:last-child { margin-bottom: 0; }
+
+        footer {
+            margin-top: 80px;
+            padding: 32px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 600px) {
+            .page-title { font-size: 36px; }
+            .stats-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <a href="index.html" class="back-link">← Back to Home</a>
+
+        <header class="page-header">
+            <div class="header-meta">June 2023 — Present</div>
+            <h1 class="page-title">Founding Engineer @ Story.com</h1>
+            <p class="page-subtitle">Building the future of storytelling.</p>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-value">500K+</div>
+                <div class="stat-label">Monthly Active Users</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">HF0 W24</div>
+                <div class="stat-label">Batch</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">$2M</div>
+                <div class="stat-label">Raised</div>
+            </div>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="timeline-date">2026</div>
+                <h3 class="timeline-title">What's Next</h3>
+                <div class="timeline-content">
+                    <p>
+                        The models are finally good enough. The gap between AI-generated content 
+                        and actual production quality is closing. Our job now is to bridge it 
+                        completely. Not AI slop. Real stories that hold up next to anything 
+                        made the traditional way.
+                    </p>
+                    <p>
+                        We're shifting from one-shot creations to becoming a full platform for 
+                        content creators. An AI-native video editor that gives creators real 
+                        control. The technology caught up to the vision. Now we build the 
+                        tools that let people use it.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Late 2025</div>
+                <h3 class="timeline-title">The Transition</h3>
+                <div class="timeline-content">
+                    <p>
+                        Leadership changed. Someone had to make sure things kept moving. 
+                        The priority was simple: stabilize the team, keep the momentum, 
+                        make sure nothing falls through the cracks.
+                    </p>
+                    <p>
+                        Remote team across timezones, sprint planning, product decisions. 
+                        The goal was smoothness — no friction, no gaps. Keep shipping, 
+                        keep the team aligned, keep the company on track.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2025</div>
+                <h3 class="timeline-title">Growing the Team</h3>
+                <div class="timeline-content">
+                    <p>
+                        Hiring is harder than building product. We flew candidates in, ran 
+                        trials, learned that finding people who actually care is the real 
+                        challenge. Built a culture where the team stays because they want to, 
+                        not because they have to.
+                    </p>
+                    <p>
+                        The ones who stuck around became family. Late night debugging sessions, 
+                        shared wins, shared frustrations. A startup is just people believing 
+                        in the same thing long enough to make it real.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2024 - 2025</div>
+                <h3 class="timeline-title">Learning the Craft</h3>
+                <div class="timeline-content">
+                    <p>
+                        The hardest part wasn't the technology. It was understanding what 
+                        makes a story actually work. We partnered with creators, watched 
+                        hours of content, studied what separates forgettable from unforgettable.
+                    </p>
+                    <p>
+                        Pacing. Emotional beats. Visual rhythm. The stuff film schools teach 
+                        in years, we had to figure out and encode into AI systems. Every 
+                        conversation with a creator became a lesson. Every piece of feedback 
+                        became a feature.
+                    </p>
+                    <p>
+                        The goal shifted from "generate videos" to "generate stories worth 
+                        watching." That meant building AI that understood creativity, not 
+                        just followed prompts.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2024 - 2025</div>
+                <h3 class="timeline-title">Building for Scale</h3>
+                <div class="timeline-content">
+                    <p>
+                        Growing users meant growing infrastructure. Auto-scaling, database 
+                        architecture, API reliability. The unsexy work that makes everything 
+                        else possible. When the product works, nobody notices the backend. 
+                        When it breaks, everyone does.
+                    </p>
+                    <p>
+                        2024 was the year image models got good. Flux came out of Black Forest 
+                        Labs and suddenly AI-generated images were actually usable. We built 
+                        around that. Then 2025 hit and everything shifted to video. Sora, Veo, 
+                        Kling. Models that could generate actual motion, actual scenes. The 
+                        technology finally caught up to what we were trying to build.
+                    </p>
+                    <p>
+                        I built the orchestration layer that ties it all together. LangGraph 
+                        workflows coordinating specialized AI agents. PostgreSQL state 
+                        persistence so sessions survive server restarts. Real-time WebSocket 
+                        streaming so users see progress as it happens. The plumbing that turns 
+                        bleeding-edge models into a product people can actually use.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">August 2024</div>
+                <h3 class="timeline-title">The Fundraise</h3>
+                <div class="timeline-content">
+                    <p>
+                        $2M raised. Coming out of HF0 with real traction meant investors 
+                        were paying attention. The fundraise opened doors for hiring, but 
+                        also raised the stakes on everything we built.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Mid 2024</div>
+                <h3 class="timeline-title">San Francisco</h3>
+                <div class="timeline-content">
+                    <p>
+                        Packed up and moved from New York. The startup scene, the energy, 
+                        the people who understand what it takes to build something from 
+                        scratch. SF felt like the right place to be.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">January - March 2024</div>
+                <h3 class="timeline-title">HF0</h3>
+                <div class="timeline-content">
+                    <p>
+                        Twelve weeks in a mansion with the top 10 teams. They said it 
+                        would be the most productive weeks of our lives. They were right.
+                    </p>
+                    <p>
+                        We pivoted the entire product. From children's books to AI video 
+                        generation. Rebuilt everything. New backend, new infrastructure, 
+                        new vision. Ship it, fix it later, move fast. Demo day was 
+                        March 19th. Story.com was born.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Late 2023</div>
+                <h3 class="timeline-title">The Numbers That Got Us In</h3>
+                <div class="timeline-content">
+                    <p>
+                        Nobody expected StoryBird to grow like it did. Text-based AI content 
+                        meant SEO worked in our favor. Every story generated was indexed, 
+                        discoverable, bringing in organic traffic we never paid for.
+                    </p>
+                    <p>
+                        The revenue and traffic numbers for a product this simple surprised 
+                        everyone, including us. That's what caught HF0's attention. Not a 
+                        fancy pitch deck, just real traction that didn't make sense on paper.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Mid 2023</div>
+                <h3 class="timeline-title">StoryBird Takes Off</h3>
+                <div class="timeline-content">
+                    <p>
+                        Amazon publishing integration changed everything. Suddenly users 
+                        weren't just generating stories, they were publishing actual books. 
+                        The product had found something real.
+                    </p>
+                    <p>
+                        We kept shipping features, optimizing the pipeline, watching the 
+                        numbers climb. A small team building something people actually wanted. 
+                        No playbook, just iteration and paying attention to what worked.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">June 2023</div>
+                <h3 class="timeline-title">The Beginning</h3>
+                <div class="timeline-content">
+                    <p>
+                        Three person team. Remote. I was in New York building the backend 
+                        from scratch. The product was StoryBird.ai, an AI-powered children's 
+                        book generator. Simple concept, but it worked.
+                    </p>
+                    <p>
+                        My job was to make things work. Backend systems, ML pipelines, 
+                        infrastructure, whatever needed building. That never changed, 
+                        even as everything else did.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>Jayesh Gaur · San Francisco · 2026</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
