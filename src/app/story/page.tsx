@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import styles from "../detail.module.css";
 
 export const metadata: Metadata = {
@@ -9,10 +8,6 @@ export const metadata: Metadata = {
 export default function StoryPage() {
   return (
     <div className={styles.container}>
-      <Link href="/" className={styles.backLink}>
-        &larr; Back to Home
-      </Link>
-
       <header className={styles.pageHeader}>
         <div className={styles.headerMeta}>June 2023 &mdash; Present</div>
         <h1 className={styles.pageTitle}>Founding Engineer @ Story.com</h1>

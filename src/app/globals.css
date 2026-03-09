@@ -19,6 +19,11 @@
 }
 
 html {
+  scroll-behavior: auto;
+}
+
+/* Smooth scroll only for anchor links on same page */
+html:focus-within {
   scroll-behavior: smooth;
 }
 

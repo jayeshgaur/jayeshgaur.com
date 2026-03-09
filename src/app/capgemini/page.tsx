@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import styles from "../detail.module.css";
 
 export const metadata: Metadata = {
@@ -9,10 +8,6 @@ export const metadata: Metadata = {
 export default function CapgeminiPage() {
   return (
     <div className={styles.container}>
-      <Link href="/" className={styles.backLink}>
-        &larr; Back to Home
-      </Link>
-
       <header className={styles.pageHeader}>
         <div className={styles.headerMeta}>2019 &mdash; 2021</div>
         <h1 className={styles.pageTitle}>Capgemini</h1>

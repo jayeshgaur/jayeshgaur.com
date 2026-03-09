@@ -4,10 +4,11 @@ import styles from "./Nav.module.css";
 export function Nav() {
   return (
     <nav className={styles.nav}>
-      <Link href="/" className={styles.logo}>
-        JG
-      </Link>
-      <ul className={styles.links}>
+      <div className={styles.navInner}>
+        <Link href="/" className={styles.logo}>
+          JG
+        </Link>
+        <ul className={styles.links}>
         <li>
           <Link href="/#ventures">Ventures</Link>
         </li>
@@ -23,6 +24,7 @@ export function Nav() {
           </a>
         </li>
       </ul>
+      </div>
     </nav>
   );
 }
